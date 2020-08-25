@@ -18,7 +18,7 @@ Your challenge is to build a Full Stack Web app that lets the user order food an
 
 - The app must use styling (even if it's not pretty). We recommend [Material UI](https://material-ui.com).
 
-- The app must 'remember' the user and their order on window refresh.
+- The app must 'remember' the user, their order and its status in a session that that persists between refreshes.
 
 - The app must have _some_ tests (only enough so we understand how you approach testing)
 
@@ -47,12 +47,30 @@ We will use them when we read your code, to try and understand your thought proc
 ## How to get started
 
 1. Clone this repository
-2. Make sure you have docker and node installed
-3. Add `api.adfoodio.site` to your hosts. If you are on linux you can use the following command:
+2. Checkout a new branch to work on
+3. Make sure you have docker and node installed
+4. Add `api.adfoodio.site` to your hosts. If you are on linux you can use the following command:
 
 ```bash
 sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /etc/hosts'
 ```
 
-4. Run docker-compose up
-5. asdasda
+5. Run docker-compose up in the project folder
+6. Run npm start in frontend folder
+7. Start writing! Good luck
+
+## How to send things back
+
+When you have something to send in, create a git patch like this
+
+1. git format-patch master --stdout > ~/path/to/file/somename.patch
+2. Email the patch to <jonathan@adludio.com> and <piotr.pladzyk@adludio.com>
+
+## Help!
+
+If you get stuck, are not able to complete the assignment to a degree you feel comfortable with in time, or have any question at all, please let us know as soon as possible!
+
+The entire reason for this test is to get an idea of your skills, so we want to make sure that you have the best possible chance :)
+
+Just send us an email on: 
+<jonathan@adludio.com> or <piotr.pladzyk@adludio.com>
