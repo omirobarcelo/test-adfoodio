@@ -10,7 +10,7 @@ Your challenge is to build a Full Stack Web app that lets the user order food an
 
 - The menu must have two sections, foods and drinks. At least three items in each.
 
-- When the user select one from each section a 10% discount will be applied as a "meal deal"
+- When the user selects at least one from each section a 10% discount will be applied as a “meal deal”
 
 - The app must store the menu, order and any stateful information in a database (MySQL)
 
@@ -22,13 +22,15 @@ Your challenge is to build a Full Stack Web app that lets the user order food an
 
 - The app must have _some_ tests (only enough so we understand how you approach testing)
 
+- The app must be properly typed
+
 ### The technology
 
 We have already set up the repo to use these technologies:
 
 - Docker + Docker-compose
-- Node + Express
-- React (using [Create React App](https://create-react-app.dev/docs/getting-started/), you may switch it out if you wish)
+- Node + Express + Typescript
+- React (using [Create React App](https://create-react-app.dev/docs/getting-started/), you may switch it out if you wish) + Typescript
 - MySQL
 
 ### Questions
@@ -46,4 +48,11 @@ We will use them when we read your code, to try and understand your thought proc
 
 1. Clone this repository
 2. Make sure you have docker and node installed
-3. 
+3. Add `api.adfoodio.site` to your hosts. If you are on linux you can use the following command:
+
+```bash
+sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /etc/hosts'
+```
+
+4. Run docker-compose up
+5. asdasda
