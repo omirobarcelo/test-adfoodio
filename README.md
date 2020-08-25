@@ -1,28 +1,28 @@
 # The Adludio Restaurant Concept!
 
 Greetings! As a potential new-hire we want to put you in charge of your very own restaurant.
-What will you be serving? We don't know, as long as it's tasty (and completely digital).
+What will you be serving? We don't mind, as long as it's tasty (and completely digital).
 
 ## The Challenge
 Your challenge is to build a Full Stack Web app that lets the user order food and drinks from a menu (of your choice), and notifies them when it's 'ready' for pickup.
 
 ### How it behaves:
 
-- The menu must have two sections, foods and drinks. At least three items in each.
+- The menu must have two sections, **foods** and **drinks**. At least three items in each, priced differently.
 
-- When the user selects at least one from each section a 10% discount will be applied as a “meal deal”
+- When the user selects at least one from each section a 10% discount will be applied as a “meal deal”.
 
-- The app must store the menu, order and any stateful information in a database (MySQL)
+- The app must store the menu, order and any stateful information in a database (MySQL).
 
 - The app must notify the user when the food is ready for pickup (My recommendation is that you set a wait/timeout to simulate  the "chef").
 
-- The app must use styling (even if it's not pretty). We recommend [Material UI](https://material-ui.com).
+- The app must use styling (even if it's not pretty). Extra points for [Material UI](https://material-ui.com).
 
-- The app must 'remember' the user, their order and its status in a session that that persists between refreshes.
+- When browser's refreshed, the session must remain intact - the user and order details persist.
 
 - The app must have _some_ tests (only enough so we understand how you approach testing)
 
-- The app must be properly typed
+- The app must use Typescript, extra points if properly typed.
 
 ### The technology
 
@@ -64,7 +64,7 @@ sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /et
 When you have something to send in, create a git patch like this
 
 1. git format-patch master --stdout > ~/path/to/file/somename.patch
-2. Email the patch to <jonathan@adludio.com> and <piotr.pladzyk@adludio.com>
+2. Email the patch to <join-devs@adludio.com>
 
 ## Help!
 
@@ -73,4 +73,4 @@ If you get stuck, are not able to complete the assignment to a degree you feel c
 The entire reason for this test is to get an idea of your skills, so we want to make sure that you have the best possible chance :)
 
 Just send us an email on: 
-<jonathan@adludio.com> or <piotr.pladzyk@adludio.com>
+<join-devs@adludio.com>
