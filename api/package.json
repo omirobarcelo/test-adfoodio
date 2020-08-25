@@ -6,13 +6,16 @@
   "scripts": {
     "start": "node -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon 'npm start'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=testing mocha -r ts-node/register 'src/**/*.spec.ts'"
   },
   "author": "Jonathan Gill<jonathan@adludio.com>",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mocha": "^8.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",

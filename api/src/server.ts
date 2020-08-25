@@ -2,17 +2,19 @@ import express from "express";
 
 const port = process.env.NODE_PORT || 4848;
 
-function run () {
+export function run () {
   const app = express();
 
-  app.get("/", function(req, res) {
-    res.send("Food can be served")
+  app.get("/", function(_, res) {
+    res.type('text/plain').send("Food can be served");
   });
 
-  app.listen(port, function () {
+  return app.listen(port, function () {
     // Port is forwarded by docker to 80.
     console.log(`Listening on http://localhost:${port}`);
   })
 }
 
-run();
+if(process.env.NODE_ENV !== 'testing') {
+  run();
+}
