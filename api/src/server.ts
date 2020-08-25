@@ -1,6 +1,6 @@
 import express from "express";
 
-const port = process.env.NODE_PORT || 3000;
+const port = process.env.NODE_PORT || 4848;
 
 function run () {
   const app = express();
