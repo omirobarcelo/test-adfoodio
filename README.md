@@ -65,7 +65,7 @@ sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /et
 
 When you have something to send in, create a git patch like this
 
-1. git format-patch master --stdout > ~/path/to/file/somename.patch
+1. `git format-patch master --stdout > ~/path/to/file/somename.patch`
 2. Email the patch to <join-devs@adludio.com>
 
 ## Help!
