@@ -17,7 +17,7 @@
 
 | Drink | Price |
 | ------------- | ------------- |
-| Gin and Tonic  | 9.00  |
+| Gin and Tonic  | 9.05  |
 | White Russian  | 9.20  |
 | Mojito  | 8.00  |
 | Old Fashioned  | 9.00  |
