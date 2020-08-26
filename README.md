@@ -3,14 +3,16 @@
 Greetings! As a potential new-hire we want to put you in charge of your very own restaurant.
 What will you be serving? We don't mind, as long as it's tasty (and completely digital).
 
+
+
 ## The Challenge
 Your challenge is to build a Full Stack Web app that lets the user order food and drinks from a menu (of your choice), and notifies them when it's 'ready' for pickup.
 
 ### How it behaves:
 
-- The menu must have two sections, **foods** and **drinks**. At least three items in each, priced differently.
+- The menu have three sections, **foods**, **drinks** and **desserts**. At least three items in each, priced differently. We expect you to use the information in [the MENU.md file](MENU.md), and created a menu.json. Remember to choose three desserts.
 
-- When the user selects at least one from each section a 10% discount will be applied as a “meal deal”.
+- The menu comes with a set of deals, make sure to check out [the MENU.md file](MENU.md) before you get started.
 
 - The app must store the menu, order and any stateful information in a database (MySQL).
 
