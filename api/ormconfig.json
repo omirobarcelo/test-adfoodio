@@ -1,0 +1,12 @@
+{
+  "type": "mysql",
+  "host": "mysql",
+  "port": 3306,
+  "username": "root",
+  "password": "root",
+  "database": "adfoodio",
+  "entities": ["src/entity/*.ts"],
+  "logging": true,
+  "synchronize": true,
+  "dropSchema": true
+}
