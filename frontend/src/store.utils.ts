@@ -29,13 +29,13 @@ const isItADeal = (order: { menuItem: MenuItem | undefined; quantity: number }[]
 
 export const updateOrder = (order: OrderItem[], newItem: OrderItem, menu: Menu, deals: Deal[]): CreateOrder => {
   let newOrder = [...order];
-  // Increment the quantity if the item is already there, otherwise add it
+  // Update the quantity if the item is already there, otherwise add it
   const itemIdx = newOrder.findIndex((item) => item.menuId === newItem.menuId);
   if (itemIdx < 0) {
     newOrder = [...newOrder, newItem as OrderItem];
   } else {
     newOrder = newOrder.map((item, idx) =>
-      idx === itemIdx ? { ...item, quantity: item.quantity + newItem.quantity } : item
+      idx === itemIdx ? { ...item, quantity: newItem.quantity } : item
     );
   }
   // Expand the order to include the full menu item
