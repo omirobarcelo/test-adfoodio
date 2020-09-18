@@ -36,7 +36,7 @@ test("button opens the dialog", () => {
   expect(dialogElement).toBeInTheDocument();
 });
 
-test("button opens the dialog", () => {
+test("dialog is rendered properly", () => {
   jest
     .spyOn(store, "useAppState")
     .mockReturnValue({ deals: TEST_DEALS } as any);
