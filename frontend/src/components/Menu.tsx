@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAppState } from "../store";
 
-export class Menu extends React.Component {
-  constructor(props: any) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <span>Menu</span>
-        <div>
-          <Link to="/order">
-            <button>Click</button>
-          </Link>
+export function Menu() {
+  const { menu } = useAppState();
+  return (
+    <div>
+      <span>Menu</span>
+      {menu && menu.map((item) => (
+        <div key={item.id}>
+          <span>{item.id}</span> <span>{item.name}</span>
         </div>
+      ))}
+      <div>
+        <Link to="/order">
+          <button>Click</button>
+        </Link>
       </div>
-    );
-  }
+    </div>
+  );
 }

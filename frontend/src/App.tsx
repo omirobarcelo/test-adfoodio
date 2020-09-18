@@ -1,9 +1,10 @@
 import React from "react";
-import logo from "./logo.png";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Order } from "./components/Order";
 import { Menu } from "./components/Menu";
+import { Order } from "./components/Order";
+import logo from "./logo.png";
+import { StateProvider } from "./store";
 
 function App() {
   // return (
@@ -17,25 +18,27 @@ function App() {
   //   </div>
   // );
   return (
-    <div className="App">
-      <Router>
-        <header style={{ width: "100%", height: "15%" }}>
-          <Link to="/">
-            <img src={logo} style={{ height: "64px" }} alt="logo" />
-          </Link>
-        </header>
-        <div style={{ width: "100%", height: "85%" }}>
-          <Switch>
-            <Route path="/order">
-              <Order />
-            </Route>
-            <Route path="/">
-              <Menu />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+    <StateProvider>
+      <div className="App">
+        <Router>
+          <header style={{ width: "100%", height: "15%" }}>
+            <Link to="/">
+              <img src={logo} style={{ height: "64px" }} alt="logo" />
+            </Link>
+          </header>
+          <div style={{ width: "100%", height: "85%" }}>
+            <Switch>
+              <Route path="/order">
+                <Order />
+              </Route>
+              <Route path="/">
+                <Menu />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    </StateProvider>
   );
 }
 
