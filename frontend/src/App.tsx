@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { CartComponent } from "./components/Cart";
 import { MenuComponent } from "./components/Menu";
 import { Order } from "./components/Order";
 import logo from "./logo.png";
@@ -34,6 +35,9 @@ function App() {
               <Route path="/">
                 <div className="Menu-container">
                   <MenuComponent />
+                </div>
+                <div className="Cart-container">
+                  <CartComponent />
                 </div>
               </Route>
             </Switch>
