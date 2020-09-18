@@ -2,8 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders warm welcome', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Welcome! And good luck!/i);
+test('header has link to home', () => {
+  const { container, getByTestId } = render(<App />);
+  const headerElement = container.querySelector('header');
+  const linkElement = getByTestId('home-link');
   expect(linkElement).toBeInTheDocument();
+  expect(headerElement).toContainElement(linkElement);
+  expect(linkElement.getAttribute('href')).toBe('/');
 });

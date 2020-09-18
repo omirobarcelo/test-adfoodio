@@ -1,3 +1,8 @@
+import AppBar from "@material-ui/core/AppBar";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -7,26 +12,21 @@ import logo from "./logo.png";
 import { StateProvider } from "./store";
 
 function App() {
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Welcome! And good luck! :)<br/>Edit <code>src/App.tsx</code> and save to reload.
-  //       </p>
-  //     </header>
-  //   </div>
-  // );
   return (
     <StateProvider>
+      <CssBaseline />
       <div className="App">
         <Router>
-          <header style={{ width: "100%", height: "15%" }}>
-            <Link to="/">
-              <img src={logo} style={{ height: "64px" }} alt="logo" />
-            </Link>
-          </header>
-          <div style={{ width: "100%", height: "85%" }}>
+          <AppBar position="static" className="App-header">
+            <Toolbar>
+              <Typography variant="h6">
+                <Link to="/" data-testid="home-link">
+                  <img src={logo} className="App-logo" alt="logo" />
+                </Link>
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Container maxWidth={false} className="App-container">
             <Switch>
               <Route path="/order">
                 <Order />
@@ -35,7 +35,7 @@ function App() {
                 <Menu />
               </Route>
             </Switch>
-          </div>
+          </Container>
         </Router>
       </div>
     </StateProvider>
