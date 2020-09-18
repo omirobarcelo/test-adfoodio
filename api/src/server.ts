@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import { createConnection } from "typeorm";
 import { dbSetup } from "./db-setup";
@@ -19,6 +20,7 @@ export async function run() {
 
   const app = express();
   app.use(express.json());
+  app.use(cors());
 
   app.get("/", function (_, res) {
     res.type("text/plain").send("Food can be served");
