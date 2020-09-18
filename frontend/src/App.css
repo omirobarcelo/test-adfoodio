@@ -15,3 +15,7 @@
 .App-container {
   height: calc(100% - 4rem);
 }
+
+.Menu-container {
+  width: 75%;
+}
