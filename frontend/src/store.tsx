@@ -2,21 +2,25 @@ import React, { createContext, Reducer, useContext, useEffect, useReducer } from
 import { CreateOrder, Deal, Menu } from "./api.types";
 import { updateOrder } from "./store.utils";
 
-type State = { menu: Menu; deals: Deal[]; order: CreateOrder };
-type ActionType = "setMenuAndDeals" | "addOrderItem";
+const ORDER_STORAGE = "adfoodio-order";
+const PICKUP_STORAGE = "addfoodio-pickUpTime";
+
+type State = { menu: Menu; deals: Deal[]; order: CreateOrder; pickUpTime?: Date };
+type ActionType = "setMenuAndDeals" | "addOrderItem" | "setPickUpTime";
 type Action = { type: ActionType; payload?: any };
 type Dispatch = (action: Action) => void;
 
 const initialState: State = {
   menu: [],
   deals: [],
-  order: localStorage.getItem("adfoodio-order")
-    ? JSON.parse(localStorage.getItem("adfoodio-order")!)
+  order: localStorage.getItem(ORDER_STORAGE)
+    ? JSON.parse(localStorage.getItem(ORDER_STORAGE)!)
     : {
         order: [],
         price: 0,
         isDeal: false,
       },
+  pickUpTime: localStorage.getItem(PICKUP_STORAGE) ? new Date(localStorage.getItem(PICKUP_STORAGE)!) : undefined,
 };
 
 const stateContext = createContext<State | undefined>(initialState);
@@ -35,8 +39,11 @@ const StateProvider = ({ children }: { children: React.ReactNode }) => {
           ...updateOrder(state.order.order, action.payload, state.menu, state.deals),
         };
         // Save order in local storage for session preservation
-        localStorage.setItem("adfoodio-order", JSON.stringify(updatedOrder));
+        localStorage.setItem(ORDER_STORAGE, JSON.stringify(updatedOrder));
         return { ...state, order: updatedOrder };
+      case "setPickUpTime":
+        localStorage.setItem(PICKUP_STORAGE, (action.payload as Date).toISOString());
+        return { ...state, pickUpTime: action.payload };
       default:
         throw new Error(`Unhandled action type: ${action.type}`);
     }
