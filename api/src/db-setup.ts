@@ -38,7 +38,7 @@ export async function dbSetup(connection: Connection) {
 
   // Create the deal entity
   const dealEntity = dealRepository.create({
-    name: "Hungy Date Offer",
+    name: "Hungry Date Offer",
     price: 4000,
     conditions: [
       { type: "main", quantity: 2 },
