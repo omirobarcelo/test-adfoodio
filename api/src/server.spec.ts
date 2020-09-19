@@ -1,15 +1,15 @@
 import chai = require("chai");
 import chaiHttp = require("chai-http");
 
-import { run } from "./server";
-
-import sinon = require("sinon");
-import typeorm = require("typeorm");
 import * as dbSetup from "./db-setup";
 import { DealEntity } from "./entity/deal.entity";
 import { MenuEntity } from "./entity/menu.entity";
 import { OrderEntity } from "./entity/order.entity";
-import { CREATED_ORDER, DEAL_DATA, MENU_DATA, ORDER_DATA, SENT_ORDER } from "./server.spec.data";
+import { run } from "./server";
+import { DEAL_DATA, MENU_DATA, ORDER_DATA, ORDER_PICK_UP_DATE, SENT_ORDER } from "./server.spec.data";
+
+import sinon = require("sinon");
+import typeorm = require("typeorm");
 
 chai.use(chaiHttp);
 const { expect } = chai;
@@ -84,10 +84,9 @@ describe("Integration tests", function () {
 
     it("supports order", async function () {
       const res = await chai.request(testEndPoint).post("/order").send(SENT_ORDER);
-      expect(this.createFake.firstArg).to.eql(CREATED_ORDER);
       expect(res).to.have.status(200);
       expect(res).to.be.json;
-      expect(res.body).to.eql({ waitTime: 6 });
+      expect(res.body).to.eql({ pickUpTime: ORDER_PICK_UP_DATE.toISOString() });
     });
   });
 

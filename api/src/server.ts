@@ -41,13 +41,15 @@ export async function run() {
   // Create an order and return the waiting time
   // req.body in shape { order: { menuId: number; quantity: number }[]; price: number }
   app.post("/order", async function (req, res) {
+    const pickUpTime = new Date();
+    pickUpTime.setSeconds(pickUpTime.getSeconds() + req.body.order.length * 4);
     const orderEntity = orderRepository.create({
       order: req.body.order,
       price: req.body.price,
-      waitTime: req.body.order.length * 2,
+      pickUpTime,
     });
     const order = await orderRepository.save(orderEntity);
-    return res.send({ waitTime: order.waitTime });
+    return res.send({ pickUpTime: order.pickUpTime });
   });
 
   return app.listen(port, function () {

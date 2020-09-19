@@ -16,6 +16,6 @@ export class OrderEntity {
   @Column('int')
   price: number | undefined;
 
-  @Column('int')
-  waitTime: number | undefined;
+  @Column('datetime', { default: () => 'CURRENT_TIMESTAMP' })
+  pickUpTime: Date | undefined;
 }

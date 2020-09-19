@@ -65,10 +65,7 @@ export const SENT_ORDER = {
   price: 4000,
 };
 
-export const CREATED_ORDER = {
-  ...SENT_ORDER,
-  waitTime: 6,
-};
+export const ORDER_PICK_UP_DATE = new Date(2021, 1, 1, 20, 20, 20);
 
 export const ORDER_DATA: OrderEntity = {
   id: 1,
@@ -87,5 +84,5 @@ export const ORDER_DATA: OrderEntity = {
     },
   ],
   price: 4000,
-  waitTime: 6,
+  pickUpTime: ORDER_PICK_UP_DATE,
 };
