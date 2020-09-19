@@ -16,7 +16,8 @@
   height: calc(100% - 4rem);
 }
 
-.Menu-container {
+.Menu-container,
+.Order-container {
   width: 75%;
 }
 

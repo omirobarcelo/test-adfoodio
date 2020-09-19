@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { CartComponent } from "./components/Cart";
 import { MenuComponent } from "./components/Menu";
-import { Order } from "./components/Order";
+import { OrderComponent } from "./components/Order";
+import { PickUpComponent } from "./components/PickUp";
 import logo from "./logo.png";
 import { StateProvider } from "./store";
 
@@ -30,7 +31,9 @@ function App() {
           <Container maxWidth={false} className="App-container">
             <Switch>
               <Route path="/order">
-                <Order />
+                <div className="Order-container">
+                  <OrderComponent />
+                </div>
               </Route>
               <Route path="/">
                 <div className="Menu-container">
@@ -42,6 +45,7 @@ function App() {
               </Route>
             </Switch>
           </Container>
+          <PickUpComponent />
         </Router>
       </div>
     </StateProvider>
