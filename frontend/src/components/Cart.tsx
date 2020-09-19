@@ -85,7 +85,7 @@ export function CartComponent() {
         </Typography>
       )}
       <Button variant="contained" color="primary" size="small" className={classes.buyBtn} component={Link} to="/order">
-        Buy
+        Check Out
       </Button>
     </Box>
   );
