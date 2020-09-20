@@ -1,0 +1,26 @@
+- What would you improve with your code?
+For the database, I would have different tables for each menu item type, probably inheriting from a common menu item. The deals should have a time limit, or include conditions for unique plates and not only types of food.
+The Order and Cart components are very similar, so they could be the same and change slighly what they do with specific props. 
+There are some common functions used in more than one place (e.g.: formatPrice) that could be moved to a utils file.
+Material UI causes warning when opening dialogs, since findDOMNode is deprecated. I would look for a way to fix the warning.
+The data structure for Order can be sometimes hard to work with, so I would improve or the data structure per se, or its transformation in backend or the store. 
+When working with dates, like for the order notification, is necessary to be careful with locales and time zones, so I would test around that.
+
+- How would you scale your code for more users?
+We would need a User table in database to link orders to users, and in the frontend the user would need to be identified some way, being an account, or leaving an e-mail/phone number when placing the order
+
+- What general patterns did you use to structure your code?
+Code/Component composition: I tried to avoid heavily coupled components or functions. Each component/function has one goal, and do not care about who uses it, so they are reusable.
+Store pattern: Since many components/pages used the data, a store, that works as a single source of truth, helps to keep the data synchronized. This way components only need to care about using the data, not really updating it; they just dispatch the actions to do so.
+Immutable code: This comes with the use of a store pattern and code composition, but whenever possible I tried to have immutable functions/updates. This makes testing easier and guarantees proper update and re-rendering.
+
+- Is there anything you think we should change about this test?
+This test is not designed for Windows machines. Out of the box some tests will not run, since it is setting environment variables directly, like NODE_ENV.
+It is easy to solve by adding the cross-env library.
+
+If there is an instance of MySQL working the docker service for MySQL errors out.
+ERROR: for test-adfoodio_mysql_1  Cannot start service mysql: Ports are not available: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ERROR: for mysql  Cannot start service mysql: Ports are not available: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+Maybe this test's instance could use a port different than the default, so the chances they use the same port are reduced. 
+
+Testing libraries like Mocha or Chai could be in devDependencies. It is not important because this is not going to be deployed, but it is good practice.
