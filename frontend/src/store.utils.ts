@@ -34,9 +34,10 @@ export const updateOrder = (order: OrderItem[], newItem: OrderItem, menu: Menu, 
   if (itemIdx < 0) {
     newOrder = [...newOrder, newItem as OrderItem];
   } else {
-    newOrder = newOrder.map((item, idx) =>
-      idx === itemIdx ? { ...item, quantity: newItem.quantity } : item
-    );
+    // Filter out items that the new quantity is 0
+    newOrder = newOrder
+      .map((item, idx) => (idx === itemIdx ? { ...item, quantity: newItem.quantity } : item))
+      .filter((item) => item.quantity > 0);
   }
   // Expand the order to include the full menu item
   const completeOrder = newOrder.map((item) => ({
