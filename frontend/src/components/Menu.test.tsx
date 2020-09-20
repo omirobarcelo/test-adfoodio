@@ -90,7 +90,7 @@ test("list is rendered properly", () => {
         class="MuiList-root MuiList-dense"
       >
         <li
-          class="MuiListItem-root makeStyles-nested-4 MuiListItem-dense MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-nested-7 MuiListItem-dense MuiListItem-gutters"
         >
           <div
             class="MuiListItemText-root MuiListItemText-dense"
@@ -130,7 +130,7 @@ test("list is rendered properly", () => {
         class="MuiList-root MuiList-dense"
       >
         <li
-          class="MuiListItem-root makeStyles-nested-4 MuiListItem-dense MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-nested-7 MuiListItem-dense MuiListItem-gutters"
         >
           <div
             class="MuiListItemText-root MuiListItemText-dense"
@@ -170,7 +170,7 @@ test("list is rendered properly", () => {
         class="MuiList-root MuiList-dense"
       >
         <li
-          class="MuiListItem-root makeStyles-nested-4 MuiListItem-dense MuiListItem-gutters"
+          class="MuiListItem-root makeStyles-nested-7 MuiListItem-dense MuiListItem-gutters"
         >
           <div
             class="MuiListItemText-root MuiListItemText-dense"

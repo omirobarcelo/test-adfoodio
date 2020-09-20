@@ -1,4 +1,5 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -13,6 +14,10 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     nested: {
       paddingLeft: theme.spacing(4),
+    },
+    newOrderBtn: {
+      display: "block",
+      marginTop: "1rem",
     },
   })
 );
@@ -56,7 +61,7 @@ export function MenuComponent() {
                   <ListItem key={item.id} className={classes.nested}>
                     <ListItemText primary={item.name} />
                     <Input
-                      defaultValue={getOrderedQuantity(item.id, order)}
+                      value={getOrderedQuantity(item.id, order)}
                       type="number"
                       onChange={(evt) =>
                         dispatch({ type: "addOrderItem", payload: { menuId: item.id, quantity: +evt.target.value } })
@@ -71,6 +76,14 @@ export function MenuComponent() {
         </List>
       )}
       <DealsComponent />
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.newOrderBtn}
+        onClick={() => dispatch({ type: "newOrder" })}
+      >
+        New Order
+      </Button>
     </div>
   );
 }

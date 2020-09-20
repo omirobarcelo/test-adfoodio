@@ -5,8 +5,14 @@ import { updateOrder } from "./store.utils";
 const ORDER_STORAGE = "adfoodio-order";
 const PICKUP_STORAGE = "addfoodio-pickUpTime";
 
+const INITIAL_ORDER = {
+  order: [],
+  price: 0,
+  isDeal: false,
+};
+
 type State = { menu: Menu; deals: Deal[]; order: CreateOrder; pickUpTime?: Date };
-type ActionType = "setMenuAndDeals" | "addOrderItem" | "setPickUpTime";
+type ActionType = "setMenuAndDeals" | "addOrderItem" | "setPickUpTime" | "newOrder";
 type Action = { type: ActionType; payload?: any };
 type Dispatch = (action: Action) => void;
 
@@ -15,11 +21,7 @@ const initialState: State = {
   deals: [],
   order: localStorage.getItem(ORDER_STORAGE)
     ? JSON.parse(localStorage.getItem(ORDER_STORAGE)!)
-    : {
-        order: [],
-        price: 0,
-        isDeal: false,
-      },
+    : INITIAL_ORDER,
   pickUpTime: localStorage.getItem(PICKUP_STORAGE) ? new Date(localStorage.getItem(PICKUP_STORAGE)!) : undefined,
 };
 
@@ -44,6 +46,10 @@ const StateProvider = ({ children }: { children: React.ReactNode }) => {
       case "setPickUpTime":
         localStorage.setItem(PICKUP_STORAGE, (action.payload as Date).toISOString());
         return { ...state, pickUpTime: action.payload };
+      case "newOrder":
+        localStorage.removeItem(ORDER_STORAGE);
+        localStorage.removeItem(PICKUP_STORAGE);
+        return { ...state, order: INITIAL_ORDER, pickUpTime: undefined };
       default:
         throw new Error(`Unhandled action type: ${action.type}`);
     }

@@ -43,7 +43,7 @@ export function DealsComponent() {
 
   return (
     <React.Fragment>
-      <Button variant="contained" color="primary" onClick={() => setOpen(true)}>
+      <Button variant="contained" color="secondary" size="large" onClick={() => setOpen(true)}>
         CHECK DEALS!
       </Button>
       <DealsDialog open={open} onClose={() => setOpen(false)} />
