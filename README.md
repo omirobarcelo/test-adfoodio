@@ -60,19 +60,3 @@ sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /et
 5. Run docker-compose up in the project folder
 6. Run npm start in frontend folder
 7. Start writing! Good luck
-
-## How to send things back
-
-When you have something to send in, create a git patch like this
-
-1. `git format-patch master --stdout > ~/path/to/file/somename.patch`
-2. Email the patch to <join-devs@adludio.com>
-
-## Help!
-
-If you get stuck, are not able to complete the assignment to a degree you feel comfortable with in time, or have any question at all, please let us know as soon as possible!
-
-The entire reason for this test is to get an idea of your skills, so we want to make sure that you have the best possible chance :)
-
-Just send us an email on: 
-<join-devs@adludio.com>
